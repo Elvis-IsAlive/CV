@@ -1,0 +1,78 @@
+\newcommand{\BrErsteSp}{3.1cm}
+\newcommand{\BrErsteSpSkills}{6cm}
+
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+%\newcolumntype{K}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+
+
+\newcommand{\experience}[6]{%
+	%Zeitraum, Firma, Ort
+	%Postion
+	%Department
+	%Tasks
+	\noindent
+	\begin{tabularx}{\textwidth}{R{\BrErsteSp}|Xr}%
+		{\bfseries #1} 		& {\bfseries  #2 }				& #3 	\\
+		\\
+		Position			& \multicolumn{2}{|l}{#4} 		\\
+		Department 			& \multicolumn{2}{|l}{#5}		\\
+		Tasks/Fields		& \multicolumn{2}{|l}{#6}		\\ 	
+		
+	\end{tabularx}
+}
+
+
+
+\newcommand{\educationUni}[9]{
+	%Zeitraum, Abschluss
+	%Institution
+	%Thesistitel
+	%Lehrstuhl
+	%sonstiges
+	\noindent
+	\begin{tabular*}{\textwidth}{@{}Z{\BrErsteSp}|l@{\extracolsep{\fill}}r}
+		{\bfseries #1 } 	& {\bfseries  #2 }		&	 #4	    \\
+							& 		#3				& 			\\
+		Thesis	 			& \multicolumn{2}{l}{#5}								\\
+		Chair				& \multicolumn{2}{l}{#6}	
+			
+		\ifthenelse{\equal{#7}{}}{}
+							 {\\  Additional	& #7 
+							  	\ifthenelse{\equal{#8}{}}{}{\\ & #8 } 	
+						      	\ifthenelse{\equal{#9}{}}{}{\\ & #9 } 	
+						     }
+	\end{tabular*}
+}
+
+
+\newcommand{\education}[4]{
+	%Zeitraum, Abschluss
+	%Institution
+	%sonstiges
+	\noindent
+	\begin{tabular*}{\textwidth}{@{}Z{\BrErsteSp}|l@{\extracolsep{\fill}}r}
+		{\bfseries #1 } 	& {\bfseries  #2 } 		&	#4	 	\\
+							& #3					&	
+	\end{tabular*}
+}
+
+
+
+\newcommand{\skillGroup}[9]{
+	%skillgroup
+	%skill		%level
+	\noindent
+	\begin{tabular*}{\textwidth}{@{}Z{6cm}|K{3.5cm}l}
+		{\bfseries #1} 	&	 #2 	&   #3		
+		\ifthenelse{\equal{#4}{}}{}{
+					\\	&	 #4		&	#5	
+					}
+		\ifthenelse{\equal{#6}{}}{}{
+					\\	&	 #6		&	#7	
+					}
+		\ifthenelse{\equal{#8}{}}{}{
+					\\	&	 #8		&	#9	
+					}
+	\end{tabular*}
+}
