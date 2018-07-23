@@ -1,0 +1,2 @@
+some more info for temp.txt
+\neven more info on second line
