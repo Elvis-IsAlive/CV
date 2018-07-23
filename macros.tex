@@ -2,7 +2,8 @@
 \newcommand{\BrErsteSpSkills}{6cm}
 
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
-%\newcolumntype{K}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{K}[1]{>{\raggedright\arraybackslash}p{#1}}
+
 
 
 
@@ -12,37 +13,52 @@
 	%Department
 	%Tasks
 	\noindent
-	\begin{tabularx}{\textwidth}{R{\BrErsteSp}|Xr}%
-		{\bfseries #1} 		& {\bfseries  #2 }				& #3 	\\
-		\\
-		Position			& \multicolumn{2}{|l}{#4} 		\\
-		Department 			& \multicolumn{2}{|l}{#5}		\\
-		Tasks/Fields		& \multicolumn{2}{|l}{#6}		\\ 	
-		
+	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|Xr}%
+		{\bfseries #1} 		& {\bfseries  #2 }			& #3 	\\
+																\\ [-2ex]
+		Position			& \multicolumn{2}{p{9cm}}{#4} 		\\
+		Department 			& \multicolumn{2}{p{9cm}}{#5}		\\
+		Tasks/Fields		& \multicolumn{2}{p{9cm}}{#6}		\\ 			
 	\end{tabularx}
+	\vspace{0,5cm}	
 }
 
 
 
+
+
 \newcommand{\educationUni}[9]{
-	%Zeitraum, Abschluss
-	%Institution
-	%Thesistitel
-	%Lehrstuhl
-	%sonstiges
 	\noindent
-	\begin{tabular*}{\textwidth}{@{}Z{\BrErsteSp}|l@{\extracolsep{\fill}}r}
-		{\bfseries #1 } 	& {\bfseries  #2 }		&	 #4	    \\
-							& 		#3				& 			\\
-		Thesis	 			& \multicolumn{2}{l}{#5}								\\
+	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|Xr}%
+		%Zeitraum, Abschluss, Ort
+		\bfseries #1  	& \bfseries  #2 		&	 #4	   		 \\
+		%Institution
+							& 		#3			&	 			\\
+																\\	[-2ex]
+		%Thesistitel
+		Thesis	 			& \multicolumn{2}{l}{#5}			\\			%Lehrstuhl
 		Chair				& \multicolumn{2}{l}{#6}	
-			
-		\ifthenelse{\equal{#7}{}}{}
-							 {\\  Additional	& #7 
-							  	\ifthenelse{\equal{#8}{}}{}{\\ & #8 } 	
-						      	\ifthenelse{\equal{#9}{}}{}{\\ & #9 } 	
-						     }
-	\end{tabular*}
+		%sonstiges
+		\ifthenelse{\equal{#7}{}}{
+			%keine Argumente
+			}{
+				\ifthenelse{\equal{#8}{}}{
+					%ein Argument ohne Aufzählung
+					\\	Additional	&	\multicolumn{2}{p{9cm}}{#7}
+				}{
+					%Aufzählung
+					\\	Additional	&	\multicolumn{2}{p{9cm}}{ \textbullet \space #7}
+					\\ 				&	\multicolumn{2}{p{9cm}}{ \textbullet \space #8}
+					
+					\ifthenelse{\equal{#9}{}}{
+						%keine 9
+					}{
+						\\				&	\multicolumn{2}{p{9cm}}{ \textbullet \space #9}
+					}
+				}
+			}
+	\end{tabularx}
+	\vspace{0,5cm}	
 }
 
 
