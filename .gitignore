@@ -2,3 +2,8 @@
 *.log
 *.aux
 *.gz
+education.tex
+experiences.tex
+profile.tex
+skills.tex
+CV*.pdf
