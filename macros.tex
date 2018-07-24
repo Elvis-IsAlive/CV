@@ -14,11 +14,11 @@
 	%Tasks
 	\noindent
 	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|Xr}%
-		{\bfseries #1} 		& {\bfseries  #2 }			& #3 	\\
-																\\ [-2ex]
-		Position			& \multicolumn{2}{p{9cm}}{#4} 		\\
-		Department 			& \multicolumn{2}{p{9cm}}{#5}		\\
-		Tasks/Fields		& \multicolumn{2}{p{9cm}}{#6}		\\ 			
+		{\bfseries #1} 		& {\bfseries  #2 }			& #3	\\
+										\\ [-2ex]
+		Position			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#4} \\
+		Department 			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#5}	\\
+		Tasks/Fields		& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#6} \\	%definieren der horizontalen Breite notwendig		
 	\end{tabularx}
 	\vspace{0,5cm}	
 }
@@ -36,24 +36,25 @@
 							& 		#3			&	 			\\
 																\\	[-2ex]
 		%Thesistitel
-		Thesis	 			& \multicolumn{2}{l}{#5}			\\			%Lehrstuhl
-		Chair				& \multicolumn{2}{l}{#6}	
+		Thesis	 			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#5}		\\
+		%Lehrstuhl
+		Chair				& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#6}	
 		%sonstiges
 		\ifthenelse{\equal{#7}{}}{
 			%keine Argumente
 			}{
 				\ifthenelse{\equal{#8}{}}{
 					%ein Argument ohne Aufzählung
-					\\	Additional	&	\multicolumn{2}{p{9cm}}{#7}
+					\\	Additional	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#7}
 				}{
 					%Aufzählung
-					\\	Additional	&	\multicolumn{2}{p{9cm}}{ \textbullet \space #7}
-					\\ 				&	\multicolumn{2}{p{9cm}}{ \textbullet \space #8}
+					\\	Additional	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{ \textbullet \space #7}
+					\\ 				&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{ \textbullet \space #8}
 					
 					\ifthenelse{\equal{#9}{}}{
 						%keine 9
 					}{
-						\\				&	\multicolumn{2}{p{9cm}}{ \textbullet \space #9}
+						\\				&	\multicolumn{2}{l}{ \textbullet \space #9}
 					}
 				}
 			}
@@ -62,15 +63,16 @@
 }
 
 
+
 \newcommand{\education}[4]{
-	%Zeitraum, Abschluss
-	%Institution
-	%sonstiges
 	\noindent
-	\begin{tabular*}{\textwidth}{@{}Z{\BrErsteSp}|l@{\extracolsep{\fill}}r}
+	\begin{tabularx}{\textwidth}{@{}K{\BrErsteSp}|l@{\extracolsep{\fill}}r}
+		%Zeitraum, Abschluss, Institution
 		{\bfseries #1 } 	& {\bfseries  #2 } 		&	#4	 	\\
+		%Sonstiges
 							& #3					&	
-	\end{tabular*}
+	\end{tabularx}
+	\vspace{0,5cm}	
 }
 
 
