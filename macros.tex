@@ -1,4 +1,4 @@
-\newcommand{\BrErsteSp}{3.1cm}
+\newcommand{\BrErsteSp}{3.5cm}
 \newcommand{\BrErsteSpSkills}{6cm}
 
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
@@ -6,6 +6,7 @@
 
 
 
+%working experience
 
 \newcommand{\experience}[6]{%
 	%Zeitraum, Firma, Ort
@@ -25,13 +26,13 @@
 
 
 
-
+%Uniabschlüsse
 
 \newcommand{\educationUni}[9]{
 	\noindent
 	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|Xr}%
 		%Zeitraum, Abschluss, Ort
-		\bfseries #1  	& \bfseries  #2 		&	 #4	   		 \\
+		\bfseries #1  	& \bfseries \mbox{#2}  		&	 #4   		 \\
 		%Institution
 							& 		#3			&	 			\\
 																\\	[-2ex]
@@ -45,7 +46,7 @@
 			}{
 				\ifthenelse{\equal{#8}{}}{
 					%ein Argument ohne Aufzählung
-					\\	Additional	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#7}
+					\\	Additional	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#7}	
 				}{
 					%Aufzählung
 					\\	Additional	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{ \textbullet \space #7}
@@ -64,13 +65,15 @@
 
 
 
+%sonstige Abschlüsse
+
 \newcommand{\education}[4]{
 	\noindent
-	\begin{tabularx}{\textwidth}{@{}K{\BrErsteSp}|l@{\extracolsep{\fill}}r}
+	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|Xr}
 		%Zeitraum, Abschluss, Institution
 		{\bfseries #1 } 	& {\bfseries  #2 } 		&	#4	 	\\
 		%Sonstiges
-							& #3					&	
+							& #3					&			\\
 	\end{tabularx}
 	\vspace{0,5cm}	
 }
