@@ -6,8 +6,36 @@
 
 
 
-%working experience
+\newcommand{\makeContact}{
+	\noindent
+	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|l}
+		&	{\LARGE \textbf{\name}} 	\\
+										\\ [-2ex]
+		&	\geb 	\\
+							\\	[-1ex]
+		&	\strasse 		\\
+		&	\ort			\\
+							\\	[-1ex]
+		Mobile		&	\mobil	\\
+		Email		&	\email	\\	
+	\end{tabularx}	
+	\vspace{0,5cm}
+}
 
+
+
+\newcommand{\info}[2]{
+	\noindent
+	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|X}
+		%Zeitraum	&	Reiseziel
+		\textbf{#1}			&	\textbf{#2} \\		
+	\end{tabularx}
+	\vspace{0,5cm}
+}
+
+
+
+%working experience
 \newcommand{\experience}[6]{%
 	%Zeitraum, Firma, Ort
 	%Postion
@@ -27,7 +55,6 @@
 
 
 %Uniabschlüsse
-
 \newcommand{\educationUni}[9]{
 	\noindent
 	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|Xr}%
@@ -66,7 +93,6 @@
 
 
 %sonstige Abschlüsse
-
 \newcommand{\education}[4]{
 	\noindent
 	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|Xr}
