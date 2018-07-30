@@ -110,16 +110,57 @@
 	%skillgroup
 	%skill		%level
 	\noindent
-	\begin{tabular*}{\textwidth}{@{}Z{6cm}|K{3.5cm}l}
+	\begin{tabular*}{\textwidth}{@{}R{6cm}|K{3.5cm}l}
 		{\bfseries #1} 	&	 #2 	&   #3		
-		\ifthenelse{\equal{#4}{}}{}{
+		\ifthenelse{\equal{#4}{\empty}}{\\}{
 					\\	&	 #4		&	#5	
-					}
-		\ifthenelse{\equal{#6}{}}{}{
-					\\	&	 #6		&	#7	
-					}
-		\ifthenelse{\equal{#8}{}}{}{
-					\\	&	 #8		&	#9	
+		
+					\ifthenelse{\equal{#6}{\empty}}{\\}{
+							\\	&	 #6		&	#7	
+							
+						\ifthenelse{\equal{#8}{\empty}}{\\}{
+								\\	&	 #8		&	#9	
+							}
+						}
 					}
 	\end{tabular*}
+	\vspace{0,5cm}
 }
+
+
+
+
+
+
+
+%testing implementation with foreach
+
+%\newcommand{\test}{{hello, world}, {second, item}}
+
+
+\newcommand{\skillGroupForEach}[1]{
+	
+	
+	\gdef\myresult{}	%cache
+	
+	\foreach \x in #1{
+		\foreach \y in \x {
+			\global\edef\myresult{ \myresult \y \&
+			}
+		} 	
+		\global\edef\myresult{\myresult TEST}
+	}
+	
+	
+	\begin{tabularx}{10cm}{ll}
+		\myresult 
+	\end{tabularx}
+	
+}
+
+
+%\skillGroupForEach{\test}
+
+
+
+
