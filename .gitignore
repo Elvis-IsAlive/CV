@@ -2,10 +2,10 @@
 *.log
 *.aux
 *.gz
-education.tex
-experiences.tex
-profile.tex
-#yskills.tex
-contact.tex
+education*.tex
+experiences*.tex
+profile*.tex
+#skills.tex
+contact*.tex
 CV*.pdf
-
+Bild.png
