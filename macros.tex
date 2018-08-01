@@ -6,21 +6,28 @@
 
 
 
-\newcommand{\makeContact}{
+\newcommand{\makeContact}[1]{
 	\noindent
-	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|l}
-		&	{\LARGE \textbf{\name}} 	\\
-										\\ [-2ex]
-		&	\geb 	\\
-							\\	[-1ex]
-		&	\strasse 		\\
-		&	\ort			\\
-							\\	[-1ex]
-		Mobile		&	\mobil	\\
-		Email		&	\email	\\	
-	\end{tabularx}	
+	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|X}
+		\multirow{10}{*}{\includegraphics[width=\BrErsteSp]{\pic}}
+													&	{\LARGE \textbf{\name}} \\			
+													\\ [-2ex]
+												&	\geb 	\\
+													\\	[-1ex]
+												&	\strasse, \ort			\\
+														\\	[-1ex]
+												&	\mobil	\\
+												&	\email	\\	
+												\\	[-1ex]
+	%	profile 	
+												&	\input{#1}					
+	\end{tabularx}		
 	\vspace{0,5cm}
 }
+
+
+
+	
 
 
 
