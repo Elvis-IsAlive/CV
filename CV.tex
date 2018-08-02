@@ -8,6 +8,33 @@
 \input{contact}
 
 
+%Parameter für Makros
+\newcommand{\position}{Position}
+\newcommand{\department}{Department}
+\newcommand{\task}{Tasks/Fields}
+\newcommand{\pageForPagenumber}{Page\ }
+\newcommand{\pageForPagenumberSeperator}{of\ }
+
+%control language
+\newcommand{\lang}{de}	%Deutsch (de) sonst Englisch 
+
+
+\ifthenelse{\equal{\lang}{de}}{
+	\usepackage[ngerman]{babel}
+	
+	%Bezeichnungen für Makros auf Deutsch ändern
+	\renewcommand{\position}{Beschäftigungsart}
+	\renewcommand{\department}{Abteilung}
+	\renewcommand{\task}{Aufgabenbereiche}
+	\renewcommand{\pageForPagenumber}{Seite\ }
+	\renewcommand{\pageForPagenumberSeperator}{von\ }
+}{
+	\usepackage[english]{babel}
+}
+
+
+
+
 
 %Seitennummerierung und Layout
 \pagestyle{fancy}
@@ -16,22 +43,31 @@
 %\rhead{Share\LaTeX}
 %\lhead{Guides and tutorials
 \lfoot{CV \name\ -- \today}
-\rfoot{Page \thepage\ of \pageref{LastPage}}
+\rfoot{\pageForPagenumber \thepage\ \pageForPagenumberSeperator \pageref{LastPage}}
+
 
 
 
 \begin{document}
 	
+	
+%German
+\ifthenelse{\equal{\lang}{de}}{	
+	
+	\makeHead{profile_de}
+	\input{education_de}
+	\input{experiences_de}
+	\input{skills_de}
+	\input{extraCurricular_de}
+}{
 
-
-\makeContact{profile}
-\input{education}
-\input{experiences}
-\input{skills}
-\input{extraCurricular}
-
-
-
+%English
+	\makeHead{profile}
+	\input{education}
+	\input{experiences}
+	\input{skills}
+	\input{extraCurricular}
+}
 
 
 \end{document}
