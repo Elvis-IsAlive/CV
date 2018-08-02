@@ -6,19 +6,18 @@
 
 
 
-\newcommand{\makeContact}[1]{
+\newcommand{\makeHead}[1]{
 	\noindent
 	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|X}
-		\multirow{10}{*}{\includegraphics[width=\BrErsteSp]{\pic}}
-													&	{\LARGE \textbf{\name}} \\			
-													\\ [-2ex]
+		\multirow{10}{*}{\vspace{0pt}\includegraphics[width=\BrErsteSp]{\pic}}	&	{\LARGE \textbf{\name}} \\			
+													\\ %[-2ex]
 												&	\geb 	\\
-													\\	[-1ex]
+													\\%	[-1ex]
 												&	\strasse, \ort			\\
-														\\	[-1ex]
+													\\%	[-1ex]
 												&	\mobil	\\
 												&	\email	\\	
-												\\	[-1ex]
+													\\	%[-1ex]
 	%	profile 	
 												&	\input{#1}					
 	\end{tabularx}		
@@ -52,9 +51,9 @@
 	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|Xr}%
 		{\bfseries #1} 		& {\bfseries  #2 }			& #3	\\
 										\\ [-2ex]
-		Position			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#4} \\
-		Department 			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#5}	\\
-		Tasks/Fields		& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#6} \\	%definieren der horizontalen Breite notwendig		
+		\position			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#4} \\
+		\department 			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#5}	\\
+		\task		& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#6} \\	%definieren der horizontalen Breite notwendig		
 	\end{tabularx}
 	\vspace{0,5cm}	
 }
