@@ -9,9 +9,19 @@
 
 
 %Parameter für Makros
+
+%working experience
 \newcommand{\position}{Position}
 \newcommand{\department}{Department}
 \newcommand{\task}{Tasks/Fields}
+
+%university experience
+\newcommand{\thesis}{Thesis}
+\newcommand{\chair}{Chair}
+%\newcommand{\additional}{Additional}
+\newcommand{\additional}{}
+
+%pagenumbering
 \newcommand{\pageForPagenumber}{Page\ }
 \newcommand{\pageForPagenumberSeperator}{of\ }
 \newcommand{\docTitle}{CV}
@@ -32,7 +42,9 @@
 	\renewcommand{\pageForPagenumber}{Seite\ }
 	\renewcommand{\pageForPagenumberSeperator}{von\ }
 	\renewcommand{\docTitle}{Lebenslauf}
-
+	\renewcommand{\thesis}{}
+	\renewcommand{\chair}{}
+%	\renewcommand{\additional}{Sonstiges}
 	
 }{
 	\usepackage[english]{babel}
@@ -60,8 +72,10 @@
 %German
 \ifthenelse{\equal{\lang}{de}}{	
 	
-	\makeHead{profile_de}
+%	\makeHead{profile_de}
+	\makeHead{}
 	\input{education_de}
+	\input{experienceAbroad_de}
 	\input{experiences_de}
 	\input{skills_de}
 	\input{extraCurricular_de}

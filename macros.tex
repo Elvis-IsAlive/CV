@@ -1,47 +1,59 @@
 \newcommand{\BrErsteSp}{3.5cm}
-\newcommand{\BrErsteSpSkills}{6cm}
+\newcommand{\BrErsteSpSkills}{6.5cm}
+\newcommand{\BrZweiteSpSkills}{4.6cm}
+\newcommand{\picHeight}{7cm}		%Definition der Bildhöhe und minipages
 
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
 \newcolumntype{K}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 
 
-\newcommand{\makeHead}[1]{
+\newcommand{\makeHead}{
 	\noindent
-	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|X}
-		\multirow{10}{*}{\vspace{0pt}\includegraphics[width=\BrErsteSp]{\pic}}	&	{\LARGE \textbf{\name}} \\			
-													\\ %[-2ex]
-												&	\geb 	\\
-													\\%	[-1ex]
-												&	\strasse, \ort			\\
-													\\%	[-1ex]
-												&	\mobil	\\
-												&	\email	\\	
-													\\	%[-1ex]
-	%	profile 	
-												&	\input{#1}					
-	\end{tabularx}		
+	\begin{minipage}[c][\picHeight][c]{0.6\textwidth}
+		\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}X}
+			& {\LARGE \textbf{\name}} \\	
+			\\ %[-2ex]der
+			&	\geb \\
+			&	\familienstand	\\
+			\\%	[-1ex]
+			&	\strasse	\\
+			&	\ort			\\
+			\\%	[-1ex]
+			&	\mobil	\\
+			&	\email	\\	
+			%[-1ex]
+			%	profile 	
+			%												&	\input{#1}					
+		\end{tabularx}		
+	\end{minipage}
+	\begin{minipage}[c][\picHeight][c]{0.4\textwidth}
+		\raggedleft
+		\includegraphics[height=\picHeight]{Bild}
+	\end{minipage}
 	\vspace{0,5cm}
 }
 
 
 
-	
 
 
+%Aufzählung für Auslandserfahrung
 
-\newcommand{\info}[2]{
+\newcommand{\experienceAbroad}[2]{
 	\noindent
 	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|X}
 		%Zeitraum	&	Reiseziel
-		\textbf{#1}			&	\textbf{#2} 	
+		\textbf{#1}			&	#2 	
 	\end{tabularx}
 	%\vspace{0,5cm}
 }
 
 
 
+
 %working experience
+
 \newcommand{\experience}[6]{%
 	%Zeitraum, Firma, Ort
 	%Postion
@@ -51,9 +63,11 @@
 	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|Xr}%
 		{\bfseries #1} 		& {\bfseries  #2 }			& #3	\\
 										\\ [-2ex]
-		\position			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#4} \\
-		\department 			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#5}	\\
-		\task		& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#6} \\	%definieren der horizontalen Breite notwendig		
+							&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#4, #5}	\\
+							&			\\ [-2ex]
+%		\position			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#4} \\
+%		\department 			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#5}	\\
+				& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#6} \\	%definieren der horizontalen Breite notwendig		
 	\end{tabularx}
 	\vspace{0,5cm}	
 }
@@ -61,6 +75,7 @@
 
 
 %Uniabschlüsse
+
 \newcommand{\educationUni}[9]{
 	\noindent
 	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|Xr}%
@@ -70,19 +85,21 @@
 							& 		#3			&	 			\\
 																\\	[-2ex]
 		%Thesistitel
-		Thesis	 			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#5}		\\
+		\thesis	 			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#5}		\\
+				\\	[-2ex]
 		%Lehrstuhl
-		Chair				& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#6}	
+		\chair				& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#6}	
+		\\	[-2ex]
 		%sonstiges
 		\ifthenelse{\equal{#7}{}}{
 			%keine Argumente
 			}{
 				\ifthenelse{\equal{#8}{}}{
 					%ein Argument ohne Aufzählung
-					\\	Additional	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#7}	
+					\\	\additional	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#7}	
 				}{
 					%Aufzählung
-					\\	Additional	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{ \textbullet \space #7}
+					\\	\additional	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{ \textbullet \space #7}
 					\\ 				&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{ \textbullet \space #8}
 					
 					\ifthenelse{\equal{#9}{}}{
@@ -99,6 +116,7 @@
 
 
 %sonstige Abschlüsse
+
 \newcommand{\education}[4]{
 	\noindent
 	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|Xr}
@@ -111,12 +129,13 @@
 }
 
 
+%Fähigkeiten
 
 \newcommand{\skillGroup}[9]{
 	%skillgroup
 	%skill		%level
 	\noindent
-	\begin{tabular*}{\textwidth}{@{}R{6cm}|K{3.5cm}l}
+	\begin{tabular*}{\textwidth}{@{}R{\BrErsteSpSkills}|K{\BrZweiteSpSkills}l}
 		{\bfseries #1} 	&	 #2 	&   #3		
 		\ifthenelse{\equal{#4}{\empty}}{\\}{
 					\\	&	 #4		&	#5	
@@ -142,27 +161,27 @@
 %testing implementation with foreach
 
 %\newcommand{\test}{{hello, world}, {second, item}}
-
-
-\newcommand{\skillGroupForEach}[1]{
-	
-	
-	\gdef\myresult{}	%cache
-	
-	\foreach \x in #1{
-		\foreach \y in \x {
-			\global\edef\myresult{ \myresult \y \&
-			}
-		} 	
-		\global\edef\myresult{\myresult TEST}
-	}
-	
-	
-	\begin{tabularx}{10cm}{ll}
-		\myresult 
-	\end{tabularx}
-	
-}
+%
+%
+%\newcommand{\skillGroupForEach}[1]{
+%	
+%	
+%	\gdef\myresult{}	%cache
+%	
+%	\foreach \x in #1{
+%		\foreach \y in \x {
+%			\global\edef\myresult{ \myresult \y \&
+%			}
+%		} 	
+%		\global\edef\myresult{\myresult TEST}
+%	}
+%	
+%	
+%	\begin{tabularx}{10cm}{ll}
+%		\myresult 
+%	\end{tabularx}
+%	
+%}
 
 
 %\skillGroupForEach{\test}
