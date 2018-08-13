@@ -130,24 +130,41 @@
 }
 
 
+
 %Fähigkeiten
-\newcommand*{\skillGroup}[9]{%
+\newcommand*{\skillGroup}[9]{
 	\noindent
-	\renewcommand{\arraystretch}{1}
+%	\renewcommand{\arraystretch}{1}
+%\begin{minipage}{\textwidth}
 	\begin{tabular*}{\textwidth}{@{}R{\BrErsteSpSkills}|K{\BrZweiteSpSkills}l}
-		{\bfseries #1} & #2 & #3
-		\ifthenelse{\equal{#4}{\empty}}{}{
-					\\ & #4 & #5
-					\ifthenelse{\equal{#6}{}}{}{%
-						\\ & #6	& #7%
-						\ifthenelse{\equal{#8}{}}{}{%
-							\\ & #8	& #9}
-						}
-					
-					}
+		\bfseries #1 & #2 & #3%
+		\ifthenelse{\equal{#4}{leer}}{\vspace{-2mm}}{\\ & #4 & #5 } 
+		\ifthenelse{\equal{#6}{leer}}{}{\\ & #6 & #7 } 
+		\ifthenelse{\equal{#8}{leer}}{}{\\ & #8 & #9 } 
+%		
+%		\bfseries #1 & #2 & #3 \\
+%					& #4 & #5 \\
+%					& #6 & #7 \\
+%					& #8 & #9 \\
+		
 	\end{tabular*}
-	%\vspace{\vertSpaceAfterGroup}
+	\medskip
+%\end{minipage}
 }
+%
+%
+%	\begin{tabular*}{\textwidth}{@{}R{\BrErsteSpSkills}|K{\BrZweiteSpSkills}l}
+%		{\bfseries #1} & #2 & #3
+%		\ifthenelse{\equal{#4}{\empty}}{\vspace{-4mm}}{\\ &#4 &#5 }
+%%					\ifthenelse{\equal{#6}{}}{}{%
+%%						\\ & #6	& #7%
+%%						\ifthenelse{\equal{#8}{}}{}{%
+%%							\\ & #8	& #9}
+%%						}
+%%					}
+%	\end{tabular*}
+%	%\vspace{\vertSpaceAfterGroup}
+%}
 
 
 
