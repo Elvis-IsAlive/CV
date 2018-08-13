@@ -138,7 +138,7 @@
 %\begin{minipage}{\textwidth}
 	\begin{tabular*}{\textwidth}{@{}R{\BrErsteSpSkills}|K{\BrZweiteSpSkills}l}
 		\bfseries #1 & #2 & #3%
-		\ifthenelse{\equal{#4}{leer}}{\vspace{-2mm}}{\\ & #4 & #5 } 
+		\ifthenelse{\equal{#4}{leer}}{\vspace{-2mm}}{\\ & #4 & #5 } %unschöne Lösung
 		\ifthenelse{\equal{#6}{leer}}{}{\\ & #6 & #7 } 
 		\ifthenelse{\equal{#8}{leer}}{}{\\ & #8 & #9 } 
 %		
@@ -152,19 +152,6 @@
 %\end{minipage}
 }
 %
-%
-%	\begin{tabular*}{\textwidth}{@{}R{\BrErsteSpSkills}|K{\BrZweiteSpSkills}l}
-%		{\bfseries #1} & #2 & #3
-%		\ifthenelse{\equal{#4}{\empty}}{\vspace{-4mm}}{\\ &#4 &#5 }
-%%					\ifthenelse{\equal{#6}{}}{}{%
-%%						\\ & #6	& #7%
-%%						\ifthenelse{\equal{#8}{}}{}{%
-%%							\\ & #8	& #9}
-%%						}
-%%					}
-%	\end{tabular*}
-%	%\vspace{\vertSpaceAfterGroup}
-%}
 
 
 
