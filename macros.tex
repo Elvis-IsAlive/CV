@@ -3,11 +3,14 @@
 \newcommand{\BrZweiteSpSkills}{4.6cm}
 \newcommand{\picHeight}{6cm}		%Definition der Bildhöhe und minipages
 
-\renewcommand{\arraystretch}{1.3}
-\newcommand{\vertSpaceAfterGroup}{0,5cm}
+\newcommand{\hauptArraystretch}{1.5}
+\renewcommand{\arraystretch}{\hauptArraystretch}
+
 
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
 \newcolumntype{K}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+
 
 
 
@@ -33,23 +36,60 @@
 		\raggedleft
 		\includegraphics[height=\picHeight]{Bild}
 	\end{minipage}
-	\vspace{\vertSpaceAfterGroup}
+	\medskip
 }
 
+
+
+
+
+%Uniabschlüsse
+
+\newcommand*{\educationUni}[9]{
+	\noindent
+	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|Xr}%
+		%Zeitraum, Abschluss, Ort
+		\bfseries #1  	& \bfseries \mbox{#2}  		&	 #4   		 \\
+		%Institution
+		& 		#3			&	 			\\
+		%Thesistitel
+		\thesis	 			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#5}	\\
+		%Lehrstuhl
+		\chair				& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#6}	
+		%sonstiges
+		\ifthenelse{\equal{#7}{}}{}{%
+			\ifthenelse{\equal{#8}{}}{%
+				%ein Argument ohne Aufzählung
+				\additional	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#7}	
+			}{%
+				%mehrere Argumente mit Aufzählung
+				\\ \additional 	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{ \textbullet \space #7} \\
+				& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{ \textbullet \space #8}%
+				%prüfen auf 9tes Argument
+				\ifthenelse{\equal{#9}{}}{%
+					%keine 9
+				}{%
+					\\	&	\multicolumn{2}{l}{ \textbullet \space #9}   \\
+				}%
+			}%
+		}%
+	\end{tabularx}
+	\medskip	
+}
 
 
 
 
 %Aufzählung für Auslandserfahrung
 
-\newcommand*{\experienceAbroad}[2]{
+\newcommand*{\experienceAbroad}[2]{%
 	\noindent
 	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|X}
 		%Zeitraum	&	Reiseziel
-		\textbf{#1}			&	#2 	
+		\textbf{#1} &	#2 \\
 	\end{tabularx}
-	%\vspace{0,5cm}
-}
+%	\medskip
+}%
 
 
 
@@ -63,56 +103,13 @@
 	%Tasks
 	\noindent
 	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|Xr}%
-		{\bfseries #1} 		& {\bfseries  #2 }			& #3	\\
-%										\\ [-2ex]
-							&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#4, #5}	\\
-%							&			\\ [-2ex]
-%		\position			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#4} \\
-%		\department 			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#5}	\\
-				& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#6} \\	%definieren der horizontalen Breite notwendig		
+		{\bfseries #1} 	& {\bfseries  #2 }			& #3	\\
+						&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#4, #5}	\\
+						& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#6} \\	%definieren der horizontalen Breite notwendig		
 	\end{tabularx}
-	\vspace{\vertSpaceAfterGroup}	
+	\medskip
 }
 
-
-
-%Uniabschlüsse
-
-\newcommand*{\educationUni}[9]{
-	\noindent
-	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|Xr}%
-		%Zeitraum, Abschluss, Ort
-		\bfseries #1  	& \bfseries \mbox{#2}  		&	 #4   		 \\
-		%Institution
-							& 		#3			&	 			\\
-\
-		%Thesistitel
-		\thesis	 			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#5}		\\
-				%\\	%[-2ex]
-		%Lehrstuhl
-		\chair				& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#6}	
-			%[-2ex]
-		%sonstiges
-		\ifthenelse{\equal{#7}{}}{}{
-				\ifthenelse{\equal{#8}{}}{
-					%ein Argument ohne Aufzählung
-						\additional	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#7}	
-				}{
-					%Aufzählung
-					\\ \additional	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{ \textbullet \space #7}		\\
-					
-					 & \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{ \textbullet \space #8}	.
-					
-					\ifthenelse{\equal{#9}{}}{
-							%keine 9
-					}{
-							&	\multicolumn{2}{l}{ \textbullet \space #9}   \\
-					}
-				}
-			}
-	\end{tabularx}
-	\vspace{\vertSpaceAfterGroup}	
-}
 
 
 
@@ -126,66 +123,26 @@
 		%Sonstiges
 							& #3					&			\\
 	\end{tabularx}
-	\vspace{\vertSpaceAfterGroup}	
+	\medskip
 }
 
 
 
 %Fähigkeiten
-\newcommand*{\skillGroup}[9]{
+\newcommand*{\skillGroup}[9]{%
 	\noindent
-%	\renewcommand{\arraystretch}{1}
-%\begin{minipage}{\textwidth}
-	\begin{tabular*}{\textwidth}{@{}R{\BrErsteSpSkills}|K{\BrZweiteSpSkills}l}
+	\renewcommand{\arraystretch}{1.2}%
+	\begin{tabular*}{\textwidth}{@{}R{\BrErsteSpSkills}|K{\BrZweiteSpSkills}l}%
+		%Gruppierung und ersten beiden Argumente
 		\bfseries #1 & #2 & #3%
-		\ifthenelse{\equal{#4}{leer}}{\vspace{-2mm}}{\\ & #4 & #5 } %unschöne Lösung
-		\ifthenelse{\equal{#6}{leer}}{}{\\ & #6 & #7 } 
-		\ifthenelse{\equal{#8}{leer}}{}{\\ & #8 & #9 } 
-%		
-%		\bfseries #1 & #2 & #3 \\
-%					& #4 & #5 \\
-%					& #6 & #7 \\
-%					& #8 & #9 \\
-		
+		%weitere Argument-Paare
+		\ifthenelse{\equal{#4}{leer}}{}{\\&#4&#5}%
+		\ifthenelse{\equal{#6}{leer}}{}{\\&#6&#7}%
+		\ifthenelse{\equal{#8}{leer}}{}{\\&#8&#9}% 	
+		\medskip
 	\end{tabular*}
-	\medskip
-%\end{minipage}
-}
-%
-
-
-
-
-
-
-
-%testing implementation with foreach
-
-%\newcommand{\test}{{hello, world}, {second, item}}
-%
-%
-%\newcommand{\skillGroupForEach}[1]{
-%	
-%	
-%	\gdef\myresult{}	%cache
-%	
-%	\foreach \x in #1{
-%		\foreach \y in \x {
-%			\global\edef\myresult{ \myresult \y \&
-%			}
-%		} 	
-%		\global\edef\myresult{\myresult TEST}
-%	}
-%	
-%	
-%	\begin{tabularx}{10cm}{ll}
-%		\myresult 
-%	\end{tabularx}
-%	
-%}
-
-
-%\skillGroupForEach{\test}
+	\renewcommand{\arraystretch}{\hauptArraystretch}%
+}%
 
 
 
