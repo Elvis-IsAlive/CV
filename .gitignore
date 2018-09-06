@@ -2,6 +2,7 @@
 *.log
 *.aux
 *.gz
+*.jpg
 education*.tex
 experiences*.tex
 profile*.tex
