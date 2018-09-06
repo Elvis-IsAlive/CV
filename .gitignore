@@ -2,6 +2,7 @@
 *.log
 *.aux
 *.gz
+*.jpg
 education*.tex
 experiences*.tex
 profile*.tex
@@ -10,3 +11,4 @@ contact*.tex
 CV*.pdf
 Bild.png
 experienceAbroad*.tex
+./Zeugnissex
