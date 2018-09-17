@@ -1,7 +1,7 @@
 \newcommand{\BrErsteSp}{3.5cm}
 \newcommand{\BrErsteSpSkills}{6.5cm}
 \newcommand{\BrZweiteSpSkills}{4.6cm}
-\newcommand{\picHeight}{6cm}		%Definition der Bildhöhe und minipages
+\newcommand{\picHeight}{7cm}		%Definition der Bildhöhe und minipages
 
 \newcommand{\hauptArraystretch}{1.5}
 \renewcommand{\arraystretch}{\hauptArraystretch}
@@ -10,13 +10,18 @@
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
 \newcolumntype{K}[1]{>{\raggedright\arraybackslash}p{#1}}
 
-
-
+\newcommand{\link}[2]{{\noindent \href{#2}{#1}}}
+%erstes Argument ist Text, zweites Link
 
 
 \newcommand*{\makeHead}{
 	\noindent
-	\begin{minipage}[c][\picHeight][c]{0.6\textwidth}
+		\begin{minipage}[l][\picHeight][c]{0.35\textwidth}
+		\raggedleft
+		\includegraphics[height=\picHeight]{bild1}
+	\end{minipage}
+	%
+	\begin{minipage}[c][\picHeight][c]{0.7\textwidth}
 		\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}X}
 			& {\LARGE \textbf{\name}} \\	
 			\\
@@ -32,10 +37,6 @@
 			%												&	\input{#1}					
 		\end{tabularx}		
 	\end{minipage}
-	\begin{minipage}[c][\picHeight][c]{0.4\textwidth}
-		\raggedleft
-		\includegraphics[height=\picHeight]{Bild}
-	\end{minipage}
 	\medskip
 }
 
@@ -49,28 +50,28 @@
 	\noindent
 	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|Xr}%
 		%Zeitraum, Abschluss, Ort
-		\bfseries #1  	& \bfseries \mbox{#2}  		&	 #4   		 \\
+		\bfseries #1  	& \bfseries \mbox{\link{#2}{#3}} 		&	 #5   		 \\
 		%Institution
-		& 		#3			&	 			\\
+		& 		#4			&	 			\\
 		%Thesistitel
-		\thesis	 			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#5}	\\
+		\thesis	 			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#6}	\\
 		%Lehrstuhl
-		\chair				& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#6}	
+		\chair				& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#7}	
 		%sonstiges
-		\ifthenelse{\equal{#7}{}}{}{%
-			\ifthenelse{\equal{#8}{}}{%
+		\ifthenelse{\equal{#8}{}}{}{%
+			\ifthenelse{\equal{#9}{}}{%
 				%ein Argument ohne Aufzählung
-				\additional	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#7}	
+				\additional	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#8}	
 			}{%
 				%mehrere Argumente mit Aufzählung
-				\\ \additional 	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{ \textbullet \space #7} \\
-				& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{ \textbullet \space #8}%
+				\\ \additional 	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{ \textbullet \space #8} \\
+				& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{ \textbullet \space #9}%
 				%prüfen auf 9tes Argument
-				\ifthenelse{\equal{#9}{}}{%
-					%keine 9
-				}{%
-					\\	&	\multicolumn{2}{l}{ \textbullet \space #9}   \\
-				}%
+				%\ifthenelse{\equal{#9}{}}{%
+				%	%keine 9
+				%}{%
+				%	\\	&	\multicolumn{2}{l}{ \textbullet \space #9}   \\
+				%}%
 			}%
 		}%
 	\end{tabularx}
@@ -96,16 +97,16 @@
 
 %working experience
 
-\newcommand*{\experience}[6]{%
+\newcommand*{\experience}[7]{%
 	%Zeitraum, Firma, Ort
 	%Postion
 	%Department
 	%Tasks
 	\noindent
 	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|Xr}%
-		{\bfseries #1} 	& {\bfseries  #2 }			& #3	\\
-						&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#4, #5}	\\
-						& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#6} \\	%definieren der horizontalen Breite notwendig		
+		{\bfseries #1} 	& {\bfseries \link{#2}{#3}}			& #4	\\
+						& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#5, #6}	\\
+						& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#7} \\	%definieren der horizontalen Breite notwendig		
 	\end{tabularx}
 	\medskip
 }
@@ -115,13 +116,13 @@
 
 %sonstige Abschlüsse
 
-\newcommand*{\education}[4]{
+\newcommand*{\education}[5]{
 	\noindent
 	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|Xr}
 		%Zeitraum, Abschluss, Institution
-		{\bfseries #1 } 	& {\bfseries  #2 } 		&	#4	 	\\
+		{\bfseries #1 } 	& {\bfseries  \link{#2}{#3} } 		&	#5	 	\\
 		%Sonstiges
-							& #3					&			\\
+							& #4					&			\\
 	\end{tabularx}
 	\medskip
 }

@@ -4,7 +4,7 @@
 \usepackage[left=2.50cm, right=2.50cm, top=1.50cm, bottom=2.0cm]{geometry}
 
 \usepackage{textcomp}		%Aufführungsszeichen etc. bei Helvica/serivenlos
-
+\usepackage[ngerman]{babel}
 
 \renewcommand{\familydefault}{\sfdefault}	%serifenlos
 \usepackage{lmodern}	%weniger pixelige Schrift in PDF
@@ -23,11 +23,17 @@
 \usepackage{pgffor}
 
 
-
-
 \usepackage{fancyhdr}	%Seitennummerierung und Layout
 \usepackage{lastpage}	%Seitennummerierung und Layout
 
 \usepackage{multirow}
 \usepackage{color}	%coloring minipage/colorbox
 
+%\usepackage[pdfborder={0 0 0}]{hyperref}
+%\usepackage[pdfborderstyle={/S/U/W 1}]{hyperref}
+\usepackage[colorlinks]{hyperref}
+\hypersetup{
+	filecolor = {blue},
+}
+
+\usepackage{xcolor}
