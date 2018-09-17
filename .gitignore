@@ -3,6 +3,8 @@
 *.aux
 *.gz
 *.jpg
+*.out
+.txsprofile
 education*.tex
 experiences*.tex
 profile*.tex
