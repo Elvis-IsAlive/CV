@@ -1,0 +1,89 @@
+\documentclass[11pt, a4paper,%
+	 version=draft,%
+%	 firsthead=false,%
+	 fromalign=left,%
+	 frommobilephone, fromemail,%
+	 enlargefirstpage=true,%
+	 backaddress=false,%		
+	 numericaldate=true
+	  ]{scrlttr2}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage[ngerman]{babel}
+\usepackage{pdfpages}
+\usepackage[T1]{fontenc}
+
+
+
+
+% Kontaktdaten 
+\input{contact}
+
+% Variablen setzen
+\setkomavar{fromname}{\name}
+\setkomavar{fromaddress}{\strasse \\
+						\ort}
+\setkomavar{frommobilephone}[Mobil: ]{\mobil}
+\setkomavar{fromemail}{\email}
+\setkomavar{place}{Neumarkt}
+
+
+
+% #############################################################################
+
+\setkomavar{toaddress}{TEST}
+\setkomavar{subject}{Bewerbung um XYZ}
+
+% #############################################################################
+
+
+
+% Signatur bündig zu Text
+\renewcommand*{\raggedsignature}{\raggedright}
+
+% Verschiebung des Textkörpers nach links
+\setlength{\oddsidemargin}{\useplength{toaddrhpos}}
+\addtolength{\oddsidemargin}{-1in}
+% Testweite erhöhen um linken Rand zu reduzieren
+\addtolength{\textwidth}{0.5in}
+
+
+
+\renewcommand*{\familydefault}{\sfdefault}
+
+\begin{document}
+
+% #############################################################################
+
+	% Anschrift
+	\begin{letter}{%
+			Frau Gabrielle Huaba \\
+			DAHUABADAMEIERUNDI GmbH\\
+			Dorfstraße 23\\
+			92329 Unterfinsterbach%
+		}
+% #############################################################################
+
+		\opening{Sehr geehrte Frau XXX}
+		
+		
+		\blindtext
+		
+
+		\closing{Mit freundlichen Grüßen}
+		
+		
+		\setkomavar*{enclseparator}{\textbf{Anlagen}}	% Umbenennung zu Plural
+		\encl{Lebenslauf\\
+			Abschlusszeugnisse\\
+			Arbeitszeugnisse}
+		
+	\end{letter}
+
+
+	\includepdf[pages=-]{CV.pdf}
+\end{document}

@@ -3,39 +3,15 @@
 
 
 
+%control language
+\newcommand{\lang}{de}	%Deutsch (de) sonst Englisch 
+
 \input{packages}
 \input{macros}
 \input{contact}
 
 
-%Parameter für Makros
 
-%working experience
-\newcommand{\position}{Position}
-\newcommand{\department}{Department}
-\newcommand{\task}{Tasks/Fields}
-
-%university experience
-\newcommand{\thesis}{Thesis}
-\newcommand{\chair}{Chair}
-%\newcommand{\additional}{Additional}
-\newcommand{\additional}{}
-
-%pagenumbering
-\newcommand{\pageForPagenumber}{Page\ }
-\newcommand{\pageForPagenumberSeperator}{of\ }
-\newcommand{\docTitle}{CV}
-
-%Skill-Classification
-\newcommand{\grundlegend}{Grundlegend}
-\newcommand{\fortgeschritten}{Fortgeschritten}
-\newcommand{\gut}{Gut}
-\newcommand{\fundiert}{Fundiert}
-
-
-
-%control language
-\newcommand{\lang}{de}	%Deutsch (de) sonst Englisch 
 
 
 \ifthenelse{\equal{\lang}{de}}{
@@ -67,9 +43,7 @@
 %\rhead{Share\LaTeX}
 %\lhead{Guides and tutorials
 \lfoot{\docTitle\ \name, \today}
-\rfoot{\pageForPagenumber \thepage\ \pageForPagenumberSeperator \pageref{LastPage}}
-
-
+\rfoot{\pageForPagenumber \thepage\ \pageForPagenumberSeperator \pageref*{LastPage}}
 
 
 \begin{document}
@@ -84,7 +58,8 @@
 	\input{experienceAbroad_de}
 	\input{experiences_de}
 	\input{skills_de}	%skills_de2 nutzt manuell erstellte Tabellenumgebungen, nicht das Makro
-	\input{extraCurricular_de}
+	\input{extraCurricular_de}Glückauf!
+	
 }{
 
 %English
