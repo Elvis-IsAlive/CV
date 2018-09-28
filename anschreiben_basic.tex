@@ -1,0 +1,41 @@
+\documentclass[layout_Anschreiben]{scrlttr2}		% laedt .ico
+	  	% #############################################################################
+		% Doc zu scrltt2 
+	  	% https://komascript.de/~mkohm/scrguide.pdf
+	  	% #############################################################################
+
+% #############################################################################
+
+\setkomavar{toaddress}{EMPFÄNGER\\
+	ADRESSE}
+\setkomavar{toname}{NAME}
+\setkomavar{subject}{BETREFF}
+
+% #############################################################################
+
+
+
+\begin{document}
+
+	\begin{letter}{}
+
+% #############################################################################
+		\opening{Sehr geehrte Frau XY,}
+		
+		
+		
+		
+		Ich freue mich auf ein persönliches Gespräch mit Ihnen.
+		
+		
+		\closing{Mit freundlichen Grüßen}
+		
+
+		\enclDIN{\href{cv.pdf}{Lebenslauf}\\
+			Abschluss- und Arbeitszeugnisse}
+%		\href{Zeugnisse/.}{Abschluss- und Arbeitszeugnisse}}
+
+	\end{letter}
+
+%	\includepdf[pages=-]{CV.pdf}
+\end{document}

@@ -1,0 +1,99 @@
+
+% ico-Datei für die Layout-Definiton des Anschreibens
+\ProvidesFile{layout_Anschreiben.lco}
+
+
+\RequirePackage[latin1]{inputenc}
+\RequirePackage{lmodern} 	% schönere, geglättete Schrift
+\RequirePackage[ngerman]{babel}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{graphicx}
+\RequirePackage{blindtext}
+\RequirePackage{pdfpages}
+\RequirePackage[colorlinks=true, urlcolor=blue, filecolor=blue]{hyperref}	% Farbe für Links
+
+
+\KOMAoptions{%
+	fontsize=11pt, 
+	paper=A4,%
+%	 version=draft,%
+%	 firsthead=false,%
+	fromalign=left,			% Absender/Briefkopf
+	frommobilephone, fromemail,%
+	enlargefirstpage=true,%
+	backaddress=false,%		
+	numericaldate=true,%
+	parskip=half,			% Abstand nach Absatz und \noindent
+	pagenumber = false,
+	enlargefirstpage=true,
+}
+
+
+	  	% #############################################################################
+		% Doc zu scrltt2 
+	  	% https://komascript.de/~mkohm/scrguide.pdf
+	  	% #############################################################################
+	  
+
+
+
+
+
+% Kontaktdaten 
+\input{contact}
+
+% Variablen setzen
+\setkomavar{fromname}{\name}
+\setkomavar{fromaddress}{\strasse \\
+						\ort}
+\setkomavar{frommobilephone}[Mobil: ]{\mobil}
+\setkomavar{fromemail}{\email}
+\setkomavar{place}{Neumarkt}
+
+
+
+
+
+
+
+% Signatur bündig zu Text
+\renewcommand*{\raggedsignature}{\raggedright}
+% Verschiebung des Textkörpers nach links
+\setlength{\oddsidemargin}{\useplength{toaddrhpos}}
+\addtolength{\oddsidemargin}{-1in}
+% Textweite erhöhen um linken Rand zu reduzieren
+\addtolength{\textwidth}{0.5in}
+% vertikale Position Head vergrößern
+
+% \makeatletter
+\@setplength{firstheadvpos}{2cm}
+% \makeatother 
+
+%\@setplength[]{firstheadvpos}{12mm}
+% Serifenlose Schrift
+\renewcommand*{\familydefault}{\sfdefault}
+
+
+%vertikaler Abstand zwischen Grußfloskel und Name für Unterschrift: 3 Zeilen
+\@setplength{sigbeforevskip}{3\baselineskip}
+
+
+%für Anlage nach DIN
+\setkomavar{enclseparator}{}		% nach DIN 5008 kein Doppelpunkt \textbf{: }
+\renewcaptionname{ngerman}{\enclname}{\textbf{Anlagen}}
+\newcommand{\enclDIN}[1]{\par
+\ifdim\parskip=0pt%
+\vskip\baselineskip
+\fi\noindent
+\begingroup
+\parbox[t]{\textwidth}{%
+\raggedright
+\ifkomavarempty*{enclseparator}{}{%
+\strut\usekomavar*{enclseparator}\usekomavar{enclseparator}\\\relax%
+\ignorespaces #1\strut}%
+\setlength{\parfillskip}{0pt plus 1fil}\par}
+\endgroup
+}
