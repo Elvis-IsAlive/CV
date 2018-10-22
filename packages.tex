@@ -6,9 +6,6 @@
 \usepackage{textcomp}		%Aufführungsszeichen etc. bei Helvica/serivenlos
 
 
-
-
-
 \renewcommand{\familydefault}{\sfdefault}	%serifenlos
 \usepackage{lmodern}	%weniger pixelige Schrift in PDF
 
@@ -20,11 +17,12 @@
 \usepackage{tabularx}
 \usepackage{array}		%Spezialspalzen
 \usepackage{setspace}	%Zeilenabstände
-\usepackage{ifthen}
-\usepackage{geometry}
+%\usepackage{ifthen}
+\usepackage{xifthen}
+%\usepackage{ifthenx}
+
 
 \usepackage{pgffor}
-
 
 \usepackage{fancyhdr}	%Seitennummerierung und Layout
 \usepackage{lastpage}	%Seitennummerierung und Layout
@@ -36,10 +34,11 @@
 %\usepackage[pdfborderstyle={/S/U/W 1}]{hyperref}
 \usepackage[colorlinks]{hyperref}
 \hypersetup{
-	filecolor = {blue},
+	allcolors=blue
 }
 
 \usepackage{xcolor}
+%\usepackage{xparse} % für IfValueTF etc. Funktionen
 
 
 
