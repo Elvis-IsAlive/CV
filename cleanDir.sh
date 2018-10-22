@@ -7,3 +7,4 @@ rm *.aux
 rm *.gz
 rm *.out
 echo "Cleaning of auxiliary files done"
+
