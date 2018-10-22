@@ -3,7 +3,8 @@
 Selbsterstellte Latex-Vorlage für chronologischen CV
 
 
-**Struktur:**
+**Struktur:** 
+Vgl. cv.pdf
 
   1. Bild und persönliche Daten    (contact.tex)
   2. Akademische Laufbahn          (education_de.tex)
