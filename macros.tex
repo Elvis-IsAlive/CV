@@ -28,13 +28,9 @@
 
 
 
-
-
-
-
 \newcommand{\BrErsteSp}{3.5cm}
-\newcommand{\BrErsteSpSkills}{6.5cm}
-\newcommand{\BrZweiteSpSkills}{4.6cm}
+\newcommand{\BrErsteSpSkills}{5.5cm}
+\newcommand{\BrZweiteSpSkills}{2.5cm}
 \newcommand{\picHeight}{7cm}		%Definition der Bildhöhe und minipages
 
 \newcommand{\hauptArraystretch}{1.5}
@@ -80,34 +76,36 @@
 
 %Uniabschlüsse
 
-\newcommand*{\educationUni}[9]{
+\newcommand*{\educationUni}[7]{
 	\noindent
 	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|Xr}%
 		%Zeitraum, Abschluss, Ort
 		\bfseries #1  	& \bfseries \mbox{\link{#2}{#3}} 		&	 #5   		 \\
 		%Institution
-		& 		#4			&	 			\\
+						& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#4}	\\
 		%Thesistitel
-		\thesis	 			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#6}	\\
+			 			& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#6}	
 		%Lehrstuhl
-		\chair				& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#7}	
+			\ifthenelse{\NOT \isempty{#7}}{%
+				\\	& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#7}	
+				}{}
 		%sonstiges
-		\ifthenelse{\equal{#8}{}}{}{%
-			\ifthenelse{\equal{#9}{}}{%
-				%ein Argument ohne Aufzählung
-				\additional	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#8}	
-			}{%
-				%mehrere Argumente mit Aufzählung
-				\\ \additional 	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{ \textbullet \space #8} \\
-				& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{ \textbullet \space #9}%
-				%prüfen auf 9tes Argument
-				%\ifthenelse{\equal{#9}{}}{%
-				%	%keine 9
-				%}{%
-				%	\\	&	\multicolumn{2}{l}{ \textbullet \space #9}   \\
-				%}%
-			}%
-		}%
+%		\ifthenelse{\equal{#8}{}}{}{%
+%			\ifthenelse{\equal{#9}{}}{%
+%				%ein Argument ohne Aufzählung
+%				\additional	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#8}	
+%			}{%
+%				%mehrere Argumente mit Aufzählung
+%				\\ \additional 	&	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{ \textbullet \space #8} \\
+%				& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{ \textbullet \space #9}%
+%				%prüfen auf 9tes Argument
+%				%\ifthenelse{\equal{#9}{}}{%
+%				%	%keine 9
+%				%}{%
+%				%	\\	&	\multicolumn{2}{l}{ \textbullet \space #9}   \\
+%				%}%
+%			}%
+%		}%
 	\end{tabularx}
 	\medskip	
 }
@@ -131,16 +129,27 @@
 
 %working experience
 
-\newcommand*{\experience}[7]{%
+
+
+
+\newcommand*{\experience}[9]{%
 	%Zeitraum, Firma, Ort
 	%Postion
 	%Department
 	%Tasks
 	\noindent
 	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSp}|Xr}%
-		{\bfseries #1} 	& {\bfseries \link{#2}{#3}}			& #4	\\
-						& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#5: #6}	\\
-						& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#7} \\	%definieren der horizontalen Breite notwendig		
+		{\bfseries #1} 	& {\bfseries #2}			& #3	\\
+		& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#4}	\\ %definieren der horizontalen Breite notwendig		
+		& \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{#5} 	% Text
+		\ifthenelse{\NOT \isempty{#6}}{%
+		\\ & \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{% Stichpunkte
+			\ifthenelse{\isempty{#6}}{}{\hspace*{0.3cm} \textbullet #6} 
+			\ifthenelse{\isempty{#7}}{}{\newline \hspace*{0.3cm} \textbullet #7}
+			\ifthenelse{\isempty{#8}}{}{\newline \hspace*{0.3cm} \textbullet #8}
+			\ifthenelse{\isempty{#9}}{}{\newline \hspace*{0.3cm} \textbullet #9}
+			}\\
+		}{}
 	\end{tabularx}
 	\medskip
 }
@@ -180,5 +189,47 @@
 }%
 
 
+%Fähigkeiten
+\newcommand*{\skillDrei}[2]{%
+	\noindent
+	\renewcommand{\arraystretch}{1.2}%
+	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSpSkills}|K{\BrZweiteSpSkills}X}%
+		% Überschrift
+		\bfseries #1 \\
+		% Argument-Paare als Text übergeben
+		#2 
+	\end{tabularx}
+	\medskip
+	\renewcommand{\arraystretch}{\hauptArraystretch}%
+}%
+
+%Fähigkeiten
+\newcommand*{\skillVier}[2]{%
+	\noindent
+	\renewcommand{\arraystretch}{1.2}%
+	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSpSkills}|K{\BrZweiteSpSkills}lX}%
+		% Überschrift
+		\bfseries #1 \\
+		% Argument-Paare als Text übergeben
+		#2 
+	\end{tabularx}
+	\medskip
+	\renewcommand{\arraystretch}{\hauptArraystretch}%
+}%
+
+
+%Fähigkeiten
+\newcommand*{\skillZwei}[2]{%
+	\noindent
+	\renewcommand{\arraystretch}{1.2}%
+	\begin{tabularx}{\textwidth}{@{}R{\BrErsteSpSkills}|X}%
+		% Überschrift
+		\bfseries #1 \\
+		% Argument-Paare als Text übergeben
+		#2 
+	\end{tabularx}
+	\medskip
+	\renewcommand{\arraystretch}{\hauptArraystretch}%
+}%
 
 
